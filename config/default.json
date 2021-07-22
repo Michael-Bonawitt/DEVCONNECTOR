@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://Th3Weatherman:j8Fg7Fr9FG3urS09@devconnector.blk5h.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://Th3Weatherman:j8Fg7Fr9FG3urS09@devconnector.blk5h.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken"
 }
