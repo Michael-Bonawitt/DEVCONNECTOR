@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const PostSchema = new.Schema({
+const PostSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'user'
@@ -38,13 +38,13 @@ const PostSchema = new.Schema({
                 type: String
             },
             date: {
-                type: date,
+                type: Date,
                 default: Date.now
             }
         }
     ],
     date: {
-        type: date,
+        type: Date,
         default: Date.now
     }
 });
