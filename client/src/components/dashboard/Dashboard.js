@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
     useEffect(() => {
         getCurrentProfile()
-    }, []);
+    }, [getCurrentProfile]);
 
     return loading && profile === null ? <Spinner /> : <Fragment>
         <h1 className="large text-primary">Dashboard</h1>
@@ -27,9 +27,10 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
             <Link to='/create-profile' className="btn btn-primary my-1">
                 Create Profile
             </Link>
-            </Fragment>}
+            </Fragment>
+        )}
     </Fragment>
-}
+};
 
 Dashboard.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
@@ -40,6 +41,6 @@ Dashboard.propTypes = {
 const mapStateToProps = state => ({
     auth: state.auth,
     profile: state.profile
-})
+});
 
 export default connect(mapStateToProps, { getCurrentProfile })(Dashboard)

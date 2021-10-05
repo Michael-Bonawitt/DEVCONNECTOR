@@ -13,7 +13,7 @@ export const getCurrentProfile = () => async dispatch => {
 
         dispatch({
             type: GET_PROFILE,
-            profile: res.data
+            payload: res.data
         });
     } catch (err) {
         dispatch({
@@ -24,7 +24,7 @@ export const getCurrentProfile = () => async dispatch => {
 };
 
 // Create or Update Profile
-export const createProfile = (formData, history, edit=false) => async dispatch => {
+export const createProfile = (formData, history, edit = false) => async dispatch => {
     try {
         const config = {
             headers: {
@@ -44,7 +44,8 @@ export const createProfile = (formData, history, edit=false) => async dispatch =
         if (!edit) {
             history.push('/dashboard');
         }
-    } catch (err) {const errors = err.response.data.errors;
+    } catch (err) {
+        const errors = err.response.data.errors;
 
         if(errors) {
             errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
