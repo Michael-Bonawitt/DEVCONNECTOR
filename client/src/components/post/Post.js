@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Spinner from '../layout/Spinner'
 import { getPost } from '../../actions/post'
@@ -8,10 +8,11 @@ import CommentForm from '../post/CommentForm'
 import PostItem from '../posts/PostItem'
 import CommentItem from '../post/CommentItem'
 
-const Post = ({ getPost, post: { post, loading }, match }) => {
+const Post = ({ getPost, post: { post, loading } }) => {
+    const {id} = useParams();
     useEffect(() => {
-        getPost(match.params.id);
-    }, [getPost]);
+        getPost(id);
+    }, [getPost, id]);
 
     return loading || post === null ? <Spinner /> : <Fragment>
         <Link to='/posts' className='btn'>
